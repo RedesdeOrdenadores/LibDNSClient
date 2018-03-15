@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Miguel Rodriguez Perez <miguel@det.uvigo.gal>
+ * Copyright (C) 2016–2018 Miguel Rodriguez Perez <miguel@det.uvigo.gal>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,7 +43,7 @@ public class AAAAResourceRecord extends ResourceRecord {
         int index = commonSize();
 
         if (getRDLength() != 16) {
-            throw new Exception("Incorrect rdlength for A Resource Records");
+            throw new Exception("Incorrect rdlength for AAAA Resource Records");
         }
 
         InetAddress ad = InetAddress.getByAddress(getRRData());
