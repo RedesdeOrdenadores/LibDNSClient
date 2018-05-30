@@ -25,6 +25,7 @@ public enum RRType {
     HINFO(13), // host information
     MX(15), // mail exchange
     TXT(16), // text strings
+    OPT(41), // Needed for EDNS
     AAAA(28); // an IPv6 host address*/
 
     static RRType fromByteArray(final byte[] bytes) throws Exception {
