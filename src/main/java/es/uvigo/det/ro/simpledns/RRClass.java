@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Miguel Rodriguez Perez <miguel@det.uvigo.gal>
+ * Copyright (C) 2016,2018 Miguel Rodriguez Perez <miguel@det.uvigo.gal>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@ package es.uvigo.det.ro.simpledns;
  * @author Miguel Rodriguez Perez
  */
 public enum RRClass {
+    OTHER(0), // For PseudoRR
     IN(1), // the Internet
     CH(3), // the CHAOS class
     HS(4); // Hesiod      
@@ -34,12 +35,23 @@ public enum RRClass {
             }
         }
 
-        throw (new Exception("Unsupported RRClass: " + val));
+	RRClass id = OTHER;
+	id.setValue(val);
+	
+	return id;
     }
 
 
     private final int id;
-    // Hesiod
+    private int value;
+
+    public final int getValue() {
+	return value;
+    }
+
+    private void setValue(int val) {
+	value = val;
+    }
     
     private RRClass(int id) {
         this.id = id;
