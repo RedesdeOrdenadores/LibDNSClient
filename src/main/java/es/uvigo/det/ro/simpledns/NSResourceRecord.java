@@ -31,7 +31,7 @@ public class NSResourceRecord extends ResourceRecord {
 
     public NSResourceRecord(DomainName domain, int ttl, DomainName ns) {
         super(domain, NS, ttl, ns.toByteArray());
-        
+
         this.ns = ns;
     }
 
@@ -44,19 +44,19 @@ public class NSResourceRecord extends ResourceRecord {
     public final DomainName getNS() {
         return ns;
     }
-    
+
     @Override
     public byte[] toByteArray() {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        
-        try {        
+
+        try {
             os.write(super.toByteArray());
             os.write(ns.toByteArray());
         } catch (IOException ex) {
             Logger.getLogger(NSResourceRecord.class.getName()).log(Level.SEVERE, null, ex);
             System.exit(-1);
-        }        
-        
+        }
+
         return os.toByteArray();
     }
 }

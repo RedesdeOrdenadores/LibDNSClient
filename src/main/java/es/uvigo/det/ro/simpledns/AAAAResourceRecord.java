@@ -29,18 +29,16 @@ import java.util.logging.Logger;
  * @author Miguel Rodriguez Perez
  */
 public class AAAAResourceRecord extends ResourceRecord {
-    private final Inet6Address addr;    
+    private final Inet6Address addr;
 
     public AAAAResourceRecord(DomainName domain, int ttl, Inet6Address addr) {
         super(domain, AAAA, ttl, addr.getAddress());
 
-        this.addr = addr;        
+        this.addr = addr;
     }
 
     protected AAAAResourceRecord(ResourceRecord decoded) throws Exception {
         super(decoded);
-
-        int index = commonSize();
 
         if (getRDLength() != 16) {
             throw new Exception("Incorrect rdlength for AAAA Resource Records");
@@ -57,7 +55,7 @@ public class AAAAResourceRecord extends ResourceRecord {
     public final Inet6Address getAddress() {
         return addr;
     }
-    
+
     @Override
     public byte[] toByteArray() {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
@@ -68,7 +66,7 @@ public class AAAAResourceRecord extends ResourceRecord {
         } catch (IOException ex) {
             Logger.getLogger(AAAAResourceRecord.class.getName()).log(Level.SEVERE, null, ex);
             System.exit(-1);
-        }                
+        }
 
         return os.toByteArray();
     }

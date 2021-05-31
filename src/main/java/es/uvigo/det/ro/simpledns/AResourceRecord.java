@@ -38,8 +38,8 @@ public class AResourceRecord extends ResourceRecord {
     }
 
     protected AResourceRecord(ResourceRecord decoded) throws Exception {
-        super(decoded);        
-       
+        super(decoded);
+
         if (getRDLength() != 4) {
             throw new Exception("Incorrect rdlength for A Resource Records");
         }
@@ -55,19 +55,19 @@ public class AResourceRecord extends ResourceRecord {
     public final Inet4Address getAddress() {
         return addr;
     }
-    
+
     @Override
     public byte[] toByteArray() {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        
-        try {                        
+
+        try {
             os.write(super.toByteArray());
-            os.write(addr.getAddress());                        
+            os.write(addr.getAddress());
         } catch (IOException ex) {
             Logger.getLogger(AResourceRecord.class.getName()).log(Level.SEVERE, null, ex);
             System.exit(-1);
         }
-        
+
         return os.toByteArray();
-    }    
+    }
 }

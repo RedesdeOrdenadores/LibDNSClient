@@ -30,7 +30,7 @@ public enum RRType {
 
     static RRType fromByteArray(final byte[] bytes) throws Exception {
         final int val = Utils.int16fromByteArray(bytes);
-        
+
         for (RRType id : values()) {
             if (val == id.id) {
                 return id;
@@ -40,13 +40,13 @@ public enum RRType {
         throw (new Exception("Unsupported RRType: " + val));
     }
 
-
     private final int id;
     // an IPv6 host address*/
-    
+
     private RRType(int id) {
         this.id = id;
     }
+
     public byte[] toByteArray() {
         return Utils.int16toByteArray(id);
     }

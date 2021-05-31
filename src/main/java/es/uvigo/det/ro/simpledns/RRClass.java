@@ -24,7 +24,7 @@ public enum RRClass {
     OTHER(0), // For PseudoRR
     IN(1), // the Internet
     CH(3), // the CHAOS class
-    HS(4); // Hesiod      
+    HS(4); // Hesiod
 
     static RRClass fromByteArray(final byte[] bytes) throws Exception {
         final int val = Utils.int16fromByteArray(bytes);
@@ -35,27 +35,27 @@ public enum RRClass {
             }
         }
 
-	RRClass id = OTHER;
-	id.setValue(val);
-	
-	return id;
-    }
+        RRClass id = OTHER;
+        id.setValue(val);
 
+        return id;
+    }
 
     private final int id;
     private int value;
 
     public final int getValue() {
-	return value;
+        return value;
     }
 
     private void setValue(int val) {
-	value = val;
+        value = val;
     }
-    
+
     private RRClass(int id) {
         this.id = id;
     }
+
     public byte[] toByteArray() {
         return Utils.int16toByteArray(id);
     }

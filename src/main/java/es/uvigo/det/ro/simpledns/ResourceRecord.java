@@ -156,8 +156,8 @@ public class ResourceRecord {
 
     /**
      * The TTL (in seconds) of the ResourceRecord. Note that this field is not
-     * updated by this class. Care must be taken to update it if it is to be
-     * stored in a cache object.
+     * updated by this class. Care must be taken to update it if it is to be stored
+     * in a cache object.
      *
      * @return
      */
@@ -175,8 +175,8 @@ public class ResourceRecord {
     }
 
     /**
-     * Undecoded data in this ResourceRecord. Needed if the type is not
-     * supported by this library.
+     * Undecoded data in this ResourceRecord. Needed if the type is not supported by
+     * this library.
      *
      * @return
      */

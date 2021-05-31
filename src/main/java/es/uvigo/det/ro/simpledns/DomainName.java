@@ -46,8 +46,8 @@ public class DomainName {
     @Override
     public String toString() {
         String res = "";
-        
-        return labels.stream().map((label) -> label + '.').reduce(res, String::concat);        
+
+        return labels.stream().map((label) -> label + '.').reduce(res, String::concat);
     }
 
     private void fromByteArray(final byte[] domain, final byte[] message) {
@@ -103,7 +103,7 @@ public class DomainName {
 
     private void setEncodedLength(int i) {
         if (encoded_length < 0) { // Not recorded yet
-            encoded_length = i; 
+            encoded_length = i;
         }
     }
 }

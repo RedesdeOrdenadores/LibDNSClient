@@ -42,8 +42,8 @@ public class Message {
     /**
      * Constructs a message of the given type
      *
-     * @param question The Domain to ask for
-     * @param type The type of the query of type
+     * @param question  The Domain to ask for
+     * @param type      The type of the query of type
      * @param recursion Wether recursion is desired
      */
     public Message(String question, RRType type, boolean recursion) {
@@ -53,15 +53,17 @@ public class Message {
     /**
      * Constructs a message of the given type
      *
-     * @param question The Domain to ask for
-     * @param type The type of the query of type
+     * @param question  The Domain to ask for
+     * @param type      The type of the query of type
      * @param recursion Wether recursion is desired
      */
     public Message(DomainName question, RRType type, boolean recursion) {
-        this(question, type, new ArrayList<ResourceRecord>(0), new ArrayList<ResourceRecord>(0), new ArrayList<ResourceRecord>(0), recursion);
+        this(question, type, new ArrayList<ResourceRecord>(0), new ArrayList<ResourceRecord>(0),
+                new ArrayList<ResourceRecord>(0), recursion);
     }
 
-    protected Message(DomainName question, RRType type, List<ResourceRecord> answers, List<ResourceRecord> nameServers, List<ResourceRecord> addionalRecords, boolean recursion) {
+    protected Message(DomainName question, RRType type, List<ResourceRecord> answers, List<ResourceRecord> nameServers,
+            List<ResourceRecord> addionalRecords, boolean recursion) {
         this.question = question;
         this.answers = answers;
         this.nameServers = nameServers;
@@ -211,7 +213,7 @@ public class Message {
     /**
      * @return the ad_records
      */
-    public List<ResourceRecord> getAdditonalRecords() {
+    public List<ResourceRecord> getAdditionalRecords() {
         return additionalRecords;
     }
 
@@ -235,8 +237,7 @@ public class Message {
         }
 
         byte[] toByteArray() {
-            final int options = RCODE | Z << 4 | RA << 7 | RD << 8 | TC << 9
-                    | AA << 10 | OPCODE << 11 | QR << 15;
+            final int options = RCODE | Z << 4 | RA << 7 | RD << 8 | TC << 9 | AA << 10 | OPCODE << 11 | QR << 15;
 
             return Utils.int16toByteArray(options);
         }

@@ -3,4 +3,8 @@ build/
 dist/
 nbproject/
 target/
+.vscode/
+.settings/
+.classpath
+.project
 manifest.mf
